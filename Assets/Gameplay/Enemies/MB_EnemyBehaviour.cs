@@ -3,6 +3,8 @@ using System.Collections;
 
 public abstract class EnemyBehaviour : MonoBehaviour 
 {
+	[SerializeField] float spawnPadding = 0.1f;
+
 	public enum EnemyState 
 	{
 		Initializing,
@@ -25,7 +27,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
 	}
 
 	public virtual void FixedUpdate () {
-		if (!IsVisibleFrom(Camera.main, 0.1f))
+		if (!IsVisibleFrom(Camera.main, spawnPadding))
 		{
 			currentState = EnemyState.Idle;
 		}
