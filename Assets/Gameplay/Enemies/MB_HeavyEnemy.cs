@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MB_LightEnemy : EnemyBehaviour
+public class MB_HeavyEnemy : EnemyBehaviour
 {
     [SerializeField]
     public float idleWaitTimeMin = 0.0f;
@@ -96,6 +96,6 @@ public class MB_LightEnemy : EnemyBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
             return;
         }
-        transform.localScale = new Vector3(1f, 1f, 1f);
+        transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 }

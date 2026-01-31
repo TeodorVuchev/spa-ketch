@@ -64,7 +64,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
 	public virtual void Idle() {}
 
-
 	public virtual void Chasing() {}
 
 	public virtual void Attacking() {}

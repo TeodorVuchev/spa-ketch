@@ -7,29 +7,36 @@ public class MB_AttackCollision : MonoBehaviour
 
     void Awake()
     {
-        attackHitBox.enabled = false;
-        heavyAttackHitBox.enabled = false;
+        if (attackHitBox != null)
+            attackHitBox.enabled = false;
+        if (heavyAttackHitBox != null)
+            heavyAttackHitBox.enabled = false;
     }
 
     // Called by animation event
     public void EnableAttackHitbox()
     {
-        attackHitBox.enabled = true;
+        if (attackHitBox != null)
+            attackHitBox.enabled = true;
     }
 
     // Called by animation event
     public void DisableAttackHitbox()
     {
-        attackHitBox.enabled = false;
+        if (attackHitBox != null)
+            attackHitBox.enabled = false;
     }
+
     public void EnableHeavyAttackHitbox()
     {
-        heavyAttackHitBox.enabled = true;
+        if (heavyAttackHitBox != null)
+            heavyAttackHitBox.enabled = true;
     }
 
     // Called by animation event
     public void DisableHeavyAttackHitbox()
     {
-        heavyAttackHitBox.enabled = false;
+        if (heavyAttackHitBox != null)
+            heavyAttackHitBox.enabled = false;
     }
 }

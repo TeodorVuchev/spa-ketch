@@ -4,6 +4,8 @@ public class MB_AnimatorControllerDriver : MonoBehaviour
 {
     Animator anim;
     EnemyBehaviour enemyBehaviour;
+    EnemyBehaviour.EnemyState currentState;
+    EnemyBehaviour.EnemyState prevState;
 
     void Awake()
     {
@@ -11,27 +13,18 @@ public class MB_AnimatorControllerDriver : MonoBehaviour
         enemyBehaviour = GetComponent<EnemyBehaviour>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        anim.SetBool("Moving", false);
-        anim.SetBool("Attack", false);
-        anim.SetBool("Dead", false);
-        
-        switch (enemyBehaviour.GetCurrentState()) {
-		case EnemyBehaviour.EnemyState.Idle:
-            anim.SetBool("Moving", false);
-			break;
-		case EnemyBehaviour.EnemyState.Chasing:
-			anim.SetBool("Moving", true);
-			break;
-		case EnemyBehaviour.EnemyState.Attacking:
-			anim.SetTrigger("Attack");
-			break;
-        case EnemyBehaviour.EnemyState.Dead:
-            anim.SetBool("Dead", true);
-            break;
-		default:
-			break;
-		}   
+        currentState = enemyBehaviour.GetCurrentState();
+        anim.SetBool("Moving", currentState == EnemyBehaviour.EnemyState.Chasing);
+        anim.SetBool("Dead", currentState == EnemyBehaviour.EnemyState.Dead);
+
+        if (currentState != prevState)
+        {
+            if (currentState == EnemyBehaviour.EnemyState.Attacking)
+                anim.SetTrigger("Attack");
+
+            prevState = currentState;
+        }
     }
 }
