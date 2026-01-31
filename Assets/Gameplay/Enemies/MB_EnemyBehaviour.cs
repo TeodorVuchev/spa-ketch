@@ -7,13 +7,12 @@ public abstract class EnemyBehaviour : MonoBehaviour
 	{
 		Initializing,
 		Idle,
-		SawPlayer,
 		Chasing,
 		Attacking,
-		Fleeing
+		Dead
 	}
 
-	public EnemyState currentState;
+	protected EnemyState currentState;
 
 	public GameObject player;
     protected Rigidbody2D rb;
@@ -26,7 +25,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
 	}
 
 	public virtual void FixedUpdate () {
-		// TODO: temporary, check with team if we're spawning enemies by hand or we'll rely on spawning logic
 		if (!IsVisibleFrom(Camera.main, 0.1f))
 		{
 			currentState = EnemyState.Idle;
@@ -39,17 +37,14 @@ public abstract class EnemyBehaviour : MonoBehaviour
 		case EnemyState.Idle:
 			Idle();
 			break;
-		case EnemyState.SawPlayer:
-			SawPlayer();
-			break;
 		case EnemyState.Chasing:
 			Chasing();
 			break;
 		case EnemyState.Attacking:
 			Attacking();
 			break;
-		case EnemyState.Fleeing:
-			Fleeing();
+		case EnemyState.Dead:
+			Dead();
 			break;
 		default:
 			break;
@@ -65,14 +60,14 @@ public abstract class EnemyBehaviour : MonoBehaviour
             v.y > -screenPadding && v.y < 1f + screenPadding; 
     }
 
+	public EnemyState GetCurrentState() { return currentState; }
 
 	public virtual void Idle() {}
 
-	public virtual void SawPlayer() {}
 
 	public virtual void Chasing() {}
 
 	public virtual void Attacking() {}
 
-	public virtual void Fleeing() {}
+	public virtual void Dead() {}
 }

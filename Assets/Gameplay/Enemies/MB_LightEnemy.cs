@@ -38,7 +38,6 @@ public class MB_LightEnemy : EnemyBehaviour
         }
     }
 
-	public override void SawPlayer() {}
 
     public override void Chasing()
     {
@@ -78,7 +77,7 @@ public class MB_LightEnemy : EnemyBehaviour
         Debug.Log("Attacking");
     }
 
-	public override void Fleeing() {}
+	public override void Dead() {}
 
     // TODO: Abstract away maybe
     void FollowPlayer() 
