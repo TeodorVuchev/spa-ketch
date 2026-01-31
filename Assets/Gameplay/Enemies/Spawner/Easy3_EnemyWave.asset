@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0478d09b8ea530749964658fcf827b1c, type: 3}
+  m_Name: Easy3_EnemyWave
+  m_EditorClassIdentifier: Assembly-CSharp::SOS_EnemyWave
+  leftSideEnemies:
+  - {fileID: 5888481729574194774, guid: 7de41585bef25db4497ff294f6c949e9, type: 3}
+  rightSideEnemies:
+  - {fileID: 5888481729574194774, guid: 0d8ece0ff096b094281938df236ec6a1, type: 3}
