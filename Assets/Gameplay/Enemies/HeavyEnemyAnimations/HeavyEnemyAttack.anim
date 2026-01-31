@@ -24,7 +24,7 @@ AnimationClip:
       value: {fileID: 21300000, guid: 3e54e387cb35747a1b93281f0e0104e2, type: 3}
     - time: 0.41666666
       value: {fileID: 21300000, guid: 5d041b1afbc8d4788b0fe90492007dbd, type: 3}
-    - time: 0.9166667
+    - time: 0.9
       value: {fileID: 21300000, guid: 4a091063b4fd945b081f74dbcefd11d7, type: 3}
     attribute: m_Sprite
     path: 
@@ -56,7 +56,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.93333334
+    m_StopTime: 0.9166666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -83,7 +83,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.9166667
+  - time: 0.5
     functionName: DisableHeavyAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 0}

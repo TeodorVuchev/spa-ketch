@@ -73,7 +73,7 @@ public class MB_HeavyEnemy : EnemyBehaviour
 
 	public override void Attacking() 
     {
-
+        
     }
 
 	public override void Dead() {}
