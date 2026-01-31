@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6610288913826197412}
   - component: {fileID: 6030913029419105390}
   - component: {fileID: -587073313955631855}
+  - component: {fileID: 3617941818437210477}
   m_Layer: 8
   m_Name: LightEnemy
   m_TagString: Untagged
@@ -208,3 +209,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3617941818437210477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888481729574194774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6a39c10403840e4b090a6aab2c39e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MB_LightEnemy
+  currentState: 0
+  player: {fileID: 0}
+  idleWaitTimeMin: 0
+  idleWaitTimeMax: 4
+  followSpeed: 5
+  laneTolerance: 0.35
+  ySteerWeight: 0.35
+  attackRangeX: 0.5
+  attackRangeY: 0.45
