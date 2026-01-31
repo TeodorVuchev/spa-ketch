@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1d42fabf04ac244b9b7ca04544d744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_DamageDealer
+  damage: 10
 --- !u!1 &1487980534466381694
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8642785428335811033, guid: bc1e636dc2f228f43980cd187af9a5fb, type: 3}
+  m_Sprite: {fileID: 9084825763004572370, guid: 28b7fc55e32b0624d9e69e6e0ac2a82c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1d42fabf04ac244b9b7ca04544d744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_DamageDealer
+  damage: 30
 --- !u!1 &8142681765295251213
 GameObject:
   m_ObjectHideFlags: 0
