@@ -9,10 +9,13 @@ public class MB_Health : MonoBehaviour
 
     [Header ("Player Specific")]
     [SerializeField] float invincibilityTime = 0.5f;
+    [SerializeField] MB_DeathScreen deathScreen;
+    [SerializeField] MB_UIInGame healthBar;
     bool invincibilityFrame = false;
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
+    Animator playerAnimator;
 
     bool hit = false;
     Vector2 moveDirection = Vector3.zero;
@@ -22,6 +25,10 @@ public class MB_Health : MonoBehaviour
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        if(gameObject.tag == "Player")
+        {
+            playerAnimator = GetComponent<Animator>();
+        }
     }
 
     private void FixedUpdate()
@@ -42,6 +49,12 @@ public class MB_Health : MonoBehaviour
         if(invincibilityFrame){ return; }
 
         health -= damage;
+
+        if(gameObject.tag == "Player")
+        {
+            healthBar.UpdateHealthBar(health);
+        }
+
         
         moveDirection = new Vector2(-transform.localScale.x, 0f);
 
@@ -51,12 +64,24 @@ public class MB_Health : MonoBehaviour
             currentRoutine = StartCoroutine(TimeToMove());
         }
 
-        LeanTween.value(gameObject, UpdateColor, Color.white, Color.red, 0.2f)
-            .setEaseOutBack().setLoopPingPong(1);
+
+            LeanTween.value(gameObject, UpdateColor, Color.white, Color.red, 0.2f)
+                .setEaseOutBack().setLoopPingPong(1);
 
         if (health <= 0f)
         {
-            Invoke("Kill", 0.2f);
+            if (gameObject.tag == "Player")
+            {
+                deathScreen.ShowLooseScreen();
+                playerAnimator.Play("Death");
+                Collider2D[] colliders = gameObject.GetComponents<Collider2D>();
+                foreach(Collider2D collider in colliders)
+                {
+                    collider.enabled = false;
+                }
+                return;
+            }
+            Kill();
             return;
         }
         if(gameObject.tag == "Player")
@@ -67,6 +92,10 @@ public class MB_Health : MonoBehaviour
 
     void Kill()
     {
+        if(gameObject.tag == "Player")
+        {
+            deathScreen.ShowLooseScreen();
+        }
         GameObject.Destroy(gameObject);
     }
 
@@ -78,10 +107,10 @@ public class MB_Health : MonoBehaviour
     }
     IEnumerator InvincibilityTime()
     {
-        invincibilityFrame = true;
-        yield return new WaitForSecondsRealtime(invincibilityTime);
+        yield return new WaitForSecondsRealtime(2f);
         invincibilityFrame = false;
     }
+
 
     void MoveOnHit()
     {

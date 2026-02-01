@@ -10,15 +10,18 @@ public class MB_UIInGame : MonoBehaviour
     void Start()
     {
         healthBar.maxValue = playerHealth.GetCurrentHealth();
+        healthBar.value = playerHealth.GetCurrentHealth();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerHealth != null)
-        {
-            print(playerHealth.GetCurrentHealth());
-            healthBar.value = playerHealth.GetCurrentHealth();
-        }
+
+    }
+
+    public void UpdateHealthBar(float health)
+    {
+        print(health);
+        healthBar.value = health;
     }
 }
