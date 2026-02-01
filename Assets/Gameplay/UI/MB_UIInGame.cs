@@ -1,13 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class MB_UIInGame : MonoBehaviour
 {
     [SerializeField] Slider healthBar;
     [SerializeField] MB_Health playerHealth;
-    [SerializeField] Image nextArrow;
+    [SerializeField] UnityEngine.UI.Image nextArrow;
+    [SerializeField] RectTransform comboScale;
+    [SerializeField] TextMeshProUGUI combonumberText;
+    [SerializeField] TextMeshProUGUI comboText;
+
+    Coroutine stopCombo;
     public float duration = 0.5f; // time for one fade (0 → 1 or 1 → 0)
     public float maxAlpha = 1f;   // maximum opacity
+
+    int combocount = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +31,55 @@ public class MB_UIInGame : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void ComboIncrease()
+    {
+        combocount += 1;
+        combonumberText.text = combocount.ToString();
+        FadeIn(combonumberText);
+        FadeIn(comboText);
+        LeanTween.scale(comboScale, new Vector3(1.2f, 1.2f, 1.2f), 0.1f).setEaseOutQuint().setLoopPingPong(1);
+        StartCoroutine()
+    }
+
+    IEnumerator HoldingCombo()
+    {
+        yield return new WaitForSeconds(3f);
+        combocount = 0;
+
+    }
+
+    public void FadeIn(TextMeshProUGUI text)
+    {
+        // Ensure starting alpha is 0
+        Color c = text.color;
+        c.a = 0f;
+        text.color = c;
+
+        LeanTween.value(gameObject, 0f, 1f, duration)
+                 .setEaseOutQuint()
+                 .setOnUpdate((float value) =>
+                 {
+                     Color col = text.color;
+                     col.a = value;
+                     text.color = col;
+                 });
+    }
+    public void FadeOut(TextMeshProUGUI text)
+    {
+        // Ensure starting alpha is 0
+        Color c = text.color;
+        text.color = c;
+
+        LeanTween.value(gameObject, 0f, 1f, duration)
+                 .setEaseOutQuint()
+                 .setOnUpdate((float value) =>
+                 {
+                     Color col = text.color;
+                     col.a = value;
+                     text.color = col;
+                 });
     }
 
     public void PlayNextArrow()
