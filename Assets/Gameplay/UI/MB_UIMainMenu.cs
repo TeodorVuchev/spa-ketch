@@ -95,4 +95,8 @@ public class MB_UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Start");
     }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

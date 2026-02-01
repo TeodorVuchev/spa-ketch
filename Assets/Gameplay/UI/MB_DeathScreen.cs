@@ -34,6 +34,10 @@ public class MB_DeathScreen : MonoBehaviour
     {
         SceneManager.LoadScene("Start");
     }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     // Update is called once per frame
     void Update()

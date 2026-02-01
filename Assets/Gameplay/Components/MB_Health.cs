@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MB_Health : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MB_Health : MonoBehaviour
     [SerializeField] float invincibilityTime = 0.5f;
     [SerializeField] MB_DeathScreen deathScreen;
     [SerializeField] MB_UIInGame healthBar;
+    [SerializeField] PlayerInput playerInput;
     bool invincibilityFrame = false;
 
     SpriteRenderer spriteRenderer;
@@ -73,6 +75,7 @@ public class MB_Health : MonoBehaviour
         {
             if (gameObject.tag == "Player")
             {
+                playerInput.actions.Disable();
                 deathScreen.ShowLooseScreen();
                 playerAnimator.Play("Death");
                 Collider2D[] colliders = gameObject.GetComponents<Collider2D>();
@@ -99,7 +102,9 @@ public class MB_Health : MonoBehaviour
             Kill();
             return;
         }
-        if(gameObject.tag == "Player")
+
+
+        if (gameObject.tag == "Player")
         {
             StartCoroutine(InvincibilityTime());
         }

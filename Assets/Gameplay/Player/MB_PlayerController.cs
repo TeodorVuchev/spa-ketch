@@ -22,12 +22,14 @@ public class MB_PlayerController : MonoBehaviour
 
     Vector2 movementInput;
     AnimatorStateInfo currentAnimationState;
+    AudioSource audioSource;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         // Fix for LeanTween not starting on subsequent play sessions
         if (tweenId != 0)
@@ -72,7 +74,11 @@ public class MB_PlayerController : MonoBehaviour
 
     void OnAttack(InputValue Input)
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
 
+        }
             if (comboIndex == 0 && !comboWindowOpen)
             {
                 animator.SetTrigger("Attacking");
@@ -96,6 +102,7 @@ public class MB_PlayerController : MonoBehaviour
         }
         if (charged == true)
         {
+            audioSource.Play();
             animator.SetTrigger("HeavyAttack");
             charged = false;
             LeanTween.cancel(tweenId);

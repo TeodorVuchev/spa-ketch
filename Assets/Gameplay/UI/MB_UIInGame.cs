@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -113,5 +114,13 @@ public class MB_UIInGame : MonoBehaviour
     {
         print(health);
         healthBar.value = health;
+    }
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Start");
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

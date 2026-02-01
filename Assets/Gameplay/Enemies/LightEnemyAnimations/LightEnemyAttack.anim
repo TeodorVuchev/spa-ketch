@@ -23,8 +23,10 @@ AnimationClip:
     - time: 0
       value: {fileID: -1199842716204219607, guid: 357932682341242a3968f1d17507aa70, type: 3}
     - time: 1
-      value: {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
+      value: {fileID: -1199842716204219607, guid: 357932682341242a3968f1d17507aa70, type: 3}
     - time: 2
+      value: {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
+    - time: 3
       value: {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
     attribute: m_Sprite
     path: 
@@ -49,6 +51,7 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: -1199842716204219607, guid: 357932682341242a3968f1d17507aa70, type: 3}
+    - {fileID: -1199842716204219607, guid: 357932682341242a3968f1d17507aa70, type: 3}
     - {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
     - {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
   m_AnimationClipSettings:
@@ -56,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 3
+    m_StopTime: 4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -76,7 +79,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1
+  - time: 2
     functionName: EnableAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -84,6 +87,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2
+    functionName: Punching
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3
     functionName: DisableAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 0}

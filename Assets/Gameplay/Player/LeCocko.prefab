@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4719863606724320173}
   - component: {fileID: 8034934568122898621}
   - component: {fileID: 1268123295371983100}
+  - component: {fileID: 4818770638554164084}
   m_Layer: 7
   m_Name: AttackBox
   m_TagString: Player
@@ -124,6 +125,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MB_DamageDealer
   damage: 10
   gameUI: {fileID: 0}
+--- !u!95 &4818770638554164084
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785957025855406450}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1f76bb06720e49e3afd4dcdc2be201d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1487980534466381694
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +349,7 @@ GameObject:
   - component: {fileID: 7223437200607502658}
   - component: {fileID: 434084687206107859}
   - component: {fileID: -4142318762517512016}
+  - component: {fileID: 3490649676079818438}
   m_Layer: 7
   m_Name: LeCocko
   m_TagString: Player
@@ -381,10 +405,11 @@ MonoBehaviour:
   health: 70
   pushSpeed: 50
   totalDamagedTime: 0.5
-  moveDownOnDeath: -3
+  moveDownOnDeath: -2
   invincibilityTime: 0.5
   deathScreen: {fileID: 0}
   healthBar: {fileID: 0}
+  playerInput: {fileID: 4724813629237577470}
 --- !u!114 &7165355917743743077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,3 +601,100 @@ MonoBehaviour:
   feet: {fileID: 3188475843112749788}
   precision: 100
   offset: 0
+--- !u!82 &3490649676079818438
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142681765295251213}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 8ac90c19951a29941840f6eb9710c031, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
