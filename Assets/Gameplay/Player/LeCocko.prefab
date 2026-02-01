@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &280770331982420970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3188475843112749788}
+  m_Layer: 7
+  m_Name: FeetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3188475843112749788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280770331982420970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 77626462400412790}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785957025855406450
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,8 +200,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -2057283633
-  m_SortingLayer: 3
+  m_SortingLayerID: 410204905
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 9084825763004572370, guid: 28b7fc55e32b0624d9e69e6e0ac2a82c, type: 3}
@@ -292,6 +323,7 @@ GameObject:
   - component: {fileID: 8821691177399617938}
   - component: {fileID: 7223437200607502658}
   - component: {fileID: 434084687206107859}
+  - component: {fileID: -4142318762517512016}
   m_Layer: 7
   m_Name: LeCocko
   m_TagString: Player
@@ -315,6 +347,7 @@ Transform:
   - {fileID: 4719863606724320173}
   - {fileID: 2472418199149168583}
   - {fileID: 8536771155215874517}
+  - {fileID: 3188475843112749788}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3447939016233197535
@@ -346,6 +379,9 @@ MonoBehaviour:
   health: 50
   pushSpeed: 50
   totalDamagedTime: 0.5
+  invincibilityTime: 0.5
+  deathScreen: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &7165355917743743077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,3 +558,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9515238, y: 0.2561636}
   m_EdgeRadius: 0
+--- !u!114 &-4142318762517512016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142681765295251213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba4e4b5fc63d3f4eb1f06266ba121f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MB_SortingLayer
+  feet: {fileID: 3188475843112749788}
+  precision: 100
+  offset: 0
