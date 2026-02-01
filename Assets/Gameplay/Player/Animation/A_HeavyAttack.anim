@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 3465286685962602723, guid: 328acb8457384c9488aef3222f559c09, type: 3}
+      value: {fileID: 1230713741824472551, guid: 9bf8938b265a78347a1abe6687ac5fb5, type: 3}
     - time: 0.083333336
-      value: {fileID: 3465286685962602723, guid: 328acb8457384c9488aef3222f559c09, type: 3}
+      value: {fileID: -8965109691836578846, guid: 0416854ffdb3c024d98d14d7927e9234, type: 3}
     - time: 0.16666667
-      value: {fileID: 3465286685962602723, guid: 328acb8457384c9488aef3222f559c09, type: 3}
+      value: {fileID: -8965109691836578846, guid: 0416854ffdb3c024d98d14d7927e9234, type: 3}
     attribute: m_Sprite
     path: Sprite
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 3465286685962602723, guid: 328acb8457384c9488aef3222f559c09, type: 3}
-    - {fileID: 3465286685962602723, guid: 328acb8457384c9488aef3222f559c09, type: 3}
-    - {fileID: 3465286685962602723, guid: 328acb8457384c9488aef3222f559c09, type: 3}
+    - {fileID: 1230713741824472551, guid: 9bf8938b265a78347a1abe6687ac5fb5, type: 3}
+    - {fileID: -8965109691836578846, guid: 0416854ffdb3c024d98d14d7927e9234, type: 3}
+    - {fileID: -8965109691836578846, guid: 0416854ffdb3c024d98d14d7927e9234, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -76,21 +76,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
+  - time: 0.083333336
     functionName: EnableHeavyAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.083333336
+  - time: 0.16666667
     functionName: FinishedHeavyAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.083333336
+  - time: 0.16666667
     functionName: DisableHeavyAttackHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
