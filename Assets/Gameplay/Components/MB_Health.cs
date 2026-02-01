@@ -81,6 +81,18 @@ public class MB_Health : MonoBehaviour
                 }
                 return;
             }
+
+            if (gameObject.tag == "Enemy" && TryGetComponent<EnemyBehaviour>(out var enemy))
+            {
+                Collider2D[] colliders = gameObject.GetComponents<Collider2D>();
+                foreach(Collider2D collider in colliders)
+                {
+                    collider.enabled = false;
+                }
+                enemy.SetDead();
+                return;
+            }
+
             Kill();
             return;
         }

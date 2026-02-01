@@ -90,6 +90,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
     }
 
 	public EnemyState GetCurrentState() { return currentState; }
+	public void SetDead() { currentState = EnemyState.Dead; }
 
 	public virtual void Idle()
 	{

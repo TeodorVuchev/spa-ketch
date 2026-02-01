@@ -110,9 +110,10 @@ GameObject:
   - component: {fileID: 8513018010005616939}
   - component: {fileID: 5735245070680153203}
   - component: {fileID: -3714553398767660815}
+  - component: {fileID: 974702777551297633}
   m_Layer: 8
   m_Name: LightEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,6 +373,18 @@ MonoBehaviour:
   feet: {fileID: 5220433624550288879}
   precision: 100
   offset: 0
+--- !u!114 &974702777551297633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888481729574194774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92101d722d58f41ef843a0c71a08f51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOnAnimEvent
 --- !u!1 &7776433205875289957
 GameObject:
   m_ObjectHideFlags: 0
