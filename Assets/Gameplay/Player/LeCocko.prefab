@@ -285,16 +285,16 @@ GameObject:
   m_Component:
   - component: {fileID: 77626462400412790}
   - component: {fileID: 3447939016233197535}
+  - component: {fileID: 8219741869613125015}
   - component: {fileID: 7165355917743743077}
   - component: {fileID: 4724813629237577470}
   - component: {fileID: 3047054087882505862}
   - component: {fileID: 8821691177399617938}
   - component: {fileID: 7223437200607502658}
   - component: {fileID: 434084687206107859}
-  - component: {fileID: 8219741869613125015}
   m_Layer: 7
   m_Name: LeCocko
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,6 +331,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MB_PlayerController
   movementSpeed: 6
   heavyAttackChargeTime: 0.8
+--- !u!114 &8219741869613125015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142681765295251213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19280da676bc3ab458977cf7ec3fbf60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MB_Health
+  health: 50
+  pushSpeed: 50
+  totalDamagedTime: 0.5
 --- !u!114 &7165355917743743077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,7 +489,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 119
@@ -495,7 +510,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.13838708, y: -1.450676}
+  m_Offset: {x: 0.06645155, y: -1.4753978}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -505,19 +520,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8950168, y: 0.12195933}
+  m_Size: {x: 0.9515238, y: 0.2561636}
   m_EdgeRadius: 0
---- !u!114 &8219741869613125015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8142681765295251213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19280da676bc3ab458977cf7ec3fbf60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MB_Health
-  health: 50
-  pushSpeed: 50

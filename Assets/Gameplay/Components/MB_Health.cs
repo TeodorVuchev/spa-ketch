@@ -5,6 +5,7 @@ public class MB_Health : MonoBehaviour
 {
     [SerializeField] float health = 50f;
     [SerializeField] float pushSpeed = 50f;
+    [SerializeField] float totalDamagedTime = 0.5f;
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
@@ -19,18 +20,6 @@ public class MB_Health : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         if (hit)
@@ -38,17 +27,26 @@ public class MB_Health : MonoBehaviour
             MoveOnHit();
         }
     }
+
+    public float GetCurrentHealth()
+    {
+        return health;
+    }
+
     public void DealDamage(float damage)
     {
         health -= damage;
         
         moveDirection = new Vector2(transform.localScale.x, 0f);
 
-        if (currentRoutine != null) { StopCoroutine(currentRoutine); }
-        currentRoutine = StartCoroutine(TimeToMove());
+        if(gameObject.tag != "Player")
+        {
+            if (currentRoutine != null) { StopCoroutine(currentRoutine); }
+            currentRoutine = StartCoroutine(TimeToMove());
+        }
 
         LeanTween.value(gameObject, UpdateColor, Color.white, Color.red, 0.2f)
-            .setEaseLinear().setLoopPingPong(1);
+            .setEaseOutBack().setLoopPingPong(1);
 
         print("Test");
         if (health < 0)
@@ -60,7 +58,7 @@ public class MB_Health : MonoBehaviour
     IEnumerator TimeToMove()
     {
         hit = true;
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(totalDamagedTime);
         hit = false;
     }
 
