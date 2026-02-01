@@ -35,19 +35,29 @@ public class MB_UIInGame : MonoBehaviour
 
     public void ComboIncrease()
     {
+        if(stopCombo != null)
+        {
+            StopCoroutine(stopCombo);
+        }
         combocount += 1;
         combonumberText.text = combocount.ToString();
         FadeIn(combonumberText);
         FadeIn(comboText);
         LeanTween.scale(comboScale, new Vector3(1.2f, 1.2f, 1.2f), 0.1f).setEaseOutQuint().setLoopPingPong(1);
-        StartCoroutine()
+        stopCombo = StartCoroutine(HoldingCombo());
     }
 
     IEnumerator HoldingCombo()
     {
         yield return new WaitForSeconds(3f);
+        stopCombo = null;
         combocount = 0;
-
+        Color c = comboText.color;
+        Color a = combonumberText.color;
+        c.a = 0f;
+        a.a = 0f;
+        comboText.color = c;
+        combonumberText.color = a;
     }
 
     public void FadeIn(TextMeshProUGUI text)
