@@ -7,6 +7,7 @@ public class MB_EnemySpawner : MonoBehaviour
     [SerializeField] SOS_EnemyWave[] Waves;
     [SerializeField] CinemachineCamera playerCamera;
     [SerializeField] GameObject player;
+    [SerializeField] MB_UIInGame uI;
 
     [Header("Level Bounds")]
     [SerializeField] GameObject LeftBound;
@@ -84,6 +85,7 @@ public class MB_EnemySpawner : MonoBehaviour
     void EnableCamera()
     {
         playerCamera.Follow = player.transform;
+        uI.PlayNextArrow();
         LeftBound.SetActive(false);
         RightBound.SetActive(false);
     }
