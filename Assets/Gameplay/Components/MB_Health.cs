@@ -7,6 +7,10 @@ public class MB_Health : MonoBehaviour
     [SerializeField] float pushSpeed = 50f;
     [SerializeField] float totalDamagedTime = 0.5f;
 
+    [Header ("Player Specific")]
+    [SerializeField] float invincibilityTime = 0.5f;
+    bool invincibilityFrame = false;
+
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
 
@@ -35,9 +39,11 @@ public class MB_Health : MonoBehaviour
 
     public void DealDamage(float damage)
     {
+        if(invincibilityFrame){ return; }
+
         health -= damage;
         
-        moveDirection = new Vector2(transform.localScale.x, 0f);
+        moveDirection = new Vector2(-transform.localScale.x, 0f);
 
         if(gameObject.tag != "Player")
         {
@@ -48,11 +54,20 @@ public class MB_Health : MonoBehaviour
         LeanTween.value(gameObject, UpdateColor, Color.white, Color.red, 0.2f)
             .setEaseOutBack().setLoopPingPong(1);
 
-        print("Test");
-        if (health < 0)
+        if (health <= 0f)
         {
-            GameObject.Destroy(gameObject);
+            Invoke("Kill", 0.2f);
+            return;
         }
+        if(gameObject.tag == "Player")
+        {
+            StartCoroutine(InvincibilityTime());
+        }
+    }
+
+    void Kill()
+    {
+        GameObject.Destroy(gameObject);
     }
 
     IEnumerator TimeToMove()
@@ -60,6 +75,12 @@ public class MB_Health : MonoBehaviour
         hit = true;
         yield return new WaitForSecondsRealtime(totalDamagedTime);
         hit = false;
+    }
+    IEnumerator InvincibilityTime()
+    {
+        invincibilityFrame = true;
+        yield return new WaitForSecondsRealtime(invincibilityTime);
+        invincibilityFrame = false;
     }
 
     void MoveOnHit()
