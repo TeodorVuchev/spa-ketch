@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 881cc75d8cbca419090c3c801dcbcc14
+guid: 2b92c24a3fa794c808c8be1854a52aaf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 48219680630978696
-    second: Charge 1_0
+      213: -4092872763467548194
+    second: Idle 4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Charge 1_0
+      name: Idle 4_0
       rect:
         serializedVersion: 2
-        x: 393
-        y: 346
-        width: 963
-        height: 1148
+        x: 490
+        y: 342
+        width: 952
+        height: 1209
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88831374b8f4ba000800000000000000
-      internalID: 48219680630978696
+      spriteID: ed935a618e13337c0800000000000000
+      internalID: -4092872763467548194
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Charge 1_0: 48219680630978696
+      Idle 4_0: -4092872763467548194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

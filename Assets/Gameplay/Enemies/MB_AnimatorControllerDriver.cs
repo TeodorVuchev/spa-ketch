@@ -3,7 +3,6 @@ using UnityEngine;
 public class MB_AnimatorControllerDriver : MonoBehaviour
 {
     [SerializeField] float attackRepeatDelay = 0.2f; // tune
-    float attackTimer;
 
     Animator anim;
     EnemyBehaviour enemyBehaviour;
@@ -29,24 +28,18 @@ public class MB_AnimatorControllerDriver : MonoBehaviour
 
         if (currentState == EnemyBehaviour.EnemyState.Attacking)
         {
-            attackTimer -= Time.deltaTime;
-
             // Only fire Attack when we're not already playing Attack (or transitioning into it)
-            if (attackTimer <= 0f && !IsInAttackAnimOrTransition())
+            if (!IsInAttackAnimOrTransition())
             {
-                anim.ResetTrigger("Attack"); // optional safety
+                // anim.ResetTrigger("Attack"); // optional safety
                 anim.SetTrigger("Attack");
-                attackTimer = attackRepeatDelay; // small delay before next attempt
+                // anim.SetBool("Charge", false);
             }
-        }
-        else
-        {
-            attackTimer = 0f; // reset when leaving attack mode
         }
     }
 
     bool IsInAttackAnimOrTransition()
     {
-        return anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
+        return anim.GetCurrentAnimatorStateInfo(0).IsName("Attack");
     }
 }

@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8f807fa7b3531498df608a2f9696a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_FollowPlayer
-  followSpeed: 1
+  followSpeed: 0.8
 --- !u!212 &6030913029419105390
 SpriteRenderer:
   serializedVersion: 2
@@ -322,7 +322,7 @@ MonoBehaviour:
   player: {fileID: 0}
   idleWaitTimeMin: 0
   idleWaitTimeMax: 2
-  followSpeed: 5
+  followSpeed: 4
   laneTolerance: 0.35
   ySteerWeight: 0.35
   attackRangeX: 3

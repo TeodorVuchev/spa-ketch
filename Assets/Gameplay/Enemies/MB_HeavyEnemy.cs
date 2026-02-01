@@ -83,6 +83,26 @@ public class MB_HeavyEnemy : EnemyBehaviour
 
     public override void Charging()
     {
+        Vector2 pos = rb.position;
+
+        float dx = player.transform.position.x - pos.x;
+        float dy = player.transform.position.y - pos.y;
+
+        bool inAttackRange =
+        Mathf.Abs(dx) <= attackRangeX &&
+        Mathf.Abs(dy) <= attackRangeY;
+
+        bool shouldDisengage =
+            Mathf.Abs(dx) > attackRangeX + disengageExtraX ||
+            Mathf.Abs(dy) > attackRangeY + disengageExtraY;
+
+        // If player moved away enough, stop attacking so the animation driver stops re-triggering.
+        if (!inAttackRange && shouldDisengage)
+        {
+            currentState = EnemyState.Idle;
+            return;
+        }
+
         chargeTimer -= Time.fixedDeltaTime;
 
         // When charge ends always attack
@@ -111,16 +131,17 @@ public class MB_HeavyEnemy : EnemyBehaviour
         // If player moved away enough, stop attacking so the animation driver stops re-triggering.
         if (!inAttackRange && shouldDisengage)
         {
-            currentState = EnemyState.Idle;   // usually better than Idle
+            currentState = EnemyState.Idle;
             return;
         }
 
         // Optional: keep facing player while attacking
         LookAtPlayer();
 
+        currentState = EnemyState.Charging;
         // Optional: if you want them to "micro-step" into lane before continuing attacks:
         // (only do this if it looks good in your game)
-        if (Mathf.Abs(dy) > attackRangeY * 0.9f) currentState = EnemyState.Chasing;
+        // if (Mathf.Abs(dy) > attackRangeY * 0.9f) currentState = EnemyState.Chasing;
     }
 
 	public override void Dead() {}

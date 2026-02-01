@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 881cc75d8cbca419090c3c801dcbcc14
+guid: 71a28a9a99b0e409283c5b6fcac85ed3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 48219680630978696
-    second: Charge 1_0
+      213: -4614558754478925529
+    second: dead 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Charge 1_0
+      name: dead 1_0
       rect:
         serializedVersion: 2
-        x: 393
-        y: 346
-        width: 963
-        height: 1148
+        x: 239
+        y: 356
+        width: 1279
+        height: 743
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88831374b8f4ba000800000000000000
-      internalID: 48219680630978696
+      spriteID: 7295d14034bc5ffb0800000000000000
+      internalID: -4614558754478925529
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Charge 1_0: 48219680630978696
+      dead 1_0: -4614558754478925529
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
