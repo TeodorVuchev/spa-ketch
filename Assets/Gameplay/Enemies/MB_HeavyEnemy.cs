@@ -20,6 +20,14 @@ public class MB_HeavyEnemy : EnemyBehaviour
 
     [SerializeField] float disengageExtraX = 0.35f;  // hysteresis (tune)
     [SerializeField] float disengageExtraY = 0.20f;
+
+    [SerializeField] float chargeDuration = 2.0f;
+/*     [SerializeField] float chargeSpeedMultiplier = 1.5f;
+ */
+    float chargeTimer;
+
+    Vector2 chargeDir;
+
     float laneTargetY;        // enemy’s chosen lane near the player
     float laneRepathTimer;    // when to pick a new lane target
 
@@ -28,6 +36,7 @@ public class MB_HeavyEnemy : EnemyBehaviour
         base.Awake();
         idleWaitTimeDefault = Random.Range(idleWaitTimeMin, idleWaitTimeMax);
         idleWaitTime = idleWaitTimeDefault;
+        chargeTimer = chargeDuration;
     }
 
     public override void Idle() 
@@ -57,16 +66,10 @@ public class MB_HeavyEnemy : EnemyBehaviour
 
         bool inLane = Mathf.Abs(dyToLane) <= laneTolerance;
 
-        // If close enough, attack (needs both X & Y near-ish, not exact)
-/*         if (Mathf.Abs(dx) <= attackRangeX && Mathf.Abs(player.transform.position.y - pos.y) <= attackRangeY)
-        {
-            currentState = EnemyState.Attacking;
-            return;
-        } */
         float dy = player.transform.position.y - pos.y;
         if (Mathf.Abs(dx) <= attackRangeX && Mathf.Abs(dy) <= attackRangeY)
         {
-            currentState = EnemyState.Attacking;
+            currentState = EnemyState.Charging;
             return;
         }
         // Movement:
@@ -76,6 +79,18 @@ public class MB_HeavyEnemy : EnemyBehaviour
         Vector2 step = new Vector2(Mathf.Sign(dx), Mathf.Clamp(dyToLane, -1f, 1f) * yFactor).normalized;
 
         rb.MovePosition(pos + step * followSpeed * Time.fixedDeltaTime);
+    }
+
+    public override void Charging()
+    {
+        chargeTimer -= Time.fixedDeltaTime;
+
+        // When charge ends always attack
+        if (chargeTimer <= 0f)
+        {
+            chargeTimer = chargeDuration;
+            currentState = EnemyState.Attacking;
+        }
     }
 
     public override void Attacking()

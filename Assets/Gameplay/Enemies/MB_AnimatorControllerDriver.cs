@@ -25,6 +25,8 @@ public class MB_AnimatorControllerDriver : MonoBehaviour
         // Prefer movement intent/velocity over raw state if you can (prevents flicker)
         anim.SetBool("Moving", currentState == EnemyBehaviour.EnemyState.Chasing);
 
+        anim.SetBool("Charge", currentState == EnemyBehaviour.EnemyState.Charging);
+
         if (currentState == EnemyBehaviour.EnemyState.Attacking)
         {
             attackTimer -= Time.deltaTime;

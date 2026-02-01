@@ -328,6 +328,7 @@ MonoBehaviour:
   attackRangeY: 1
   disengageExtraX: 0.35
   disengageExtraY: 0.2
+  chargeDuration: 1
 --- !u!95 &4512115723609241029
 Animator:
   serializedVersion: 7

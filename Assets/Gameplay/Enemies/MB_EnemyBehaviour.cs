@@ -10,6 +10,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
 		Initializing,
 		Idle,
 		Chasing,
+		Charging,
 		Attacking,
 		Dead
 	}
@@ -42,6 +43,9 @@ public abstract class EnemyBehaviour : MonoBehaviour
 		case EnemyState.Chasing:
 			Chasing();
 			break;
+		case EnemyState.Charging:
+			Charging();
+			break;	
 		case EnemyState.Attacking:
 			Attacking();
 			break;
@@ -67,6 +71,8 @@ public abstract class EnemyBehaviour : MonoBehaviour
 	public virtual void Idle() {}
 
 	public virtual void Chasing() {}
+
+	public virtual void Charging() {}
 
 	public virtual void Attacking() {}
 
