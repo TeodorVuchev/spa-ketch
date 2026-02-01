@@ -30,7 +30,11 @@ public class MB_PlayerController : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         // Fix for LeanTween not starting on subsequent play sessions
-        LeanTween.reset();            // reset LeanTween internals globally
+        if (tweenId != 0)
+        {
+            LeanTween.cancel(tweenId);
+            tweenId = 0;
+        }         // reset LeanTween internals globally
     }
 
     // Update is called once per frame
@@ -123,8 +127,12 @@ public class MB_PlayerController : MonoBehaviour
         print("tweeenit!");
 
         print(spriteRenderer);
-        LeanTween.reset();
-        if(tweenId != 0) { LeanTween.cancel(gameObject); }
+        if (tweenId != 0)
+        {
+            LeanTween.cancel(tweenId);
+            tweenId = 0;
+        }
+        if (tweenId != 0) { LeanTween.cancel(gameObject); }
         // LeanTween.color uses a linear interpolation by default
         tweenId = LeanTween.value(gameObject, UpdateColor, Color.white, Color.yellow, 0.2f)
             .setEaseLinear()
