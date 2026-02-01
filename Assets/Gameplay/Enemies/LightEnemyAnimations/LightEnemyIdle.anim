@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LightEnemyAttack
+  m_Name: LightEnemyIdle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1199842716204219607, guid: 357932682341242a3968f1d17507aa70, type: 3}
+      value: {fileID: 5905681027756182028, guid: f4af0a587237c4b519c06c5839c1ecbb, type: 3}
     - time: 1
-      value: {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
-    - time: 2
-      value: {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
+      value: {fileID: -4243389574673483943, guid: b479100557b2b4756b149d280fec9fec, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,15 +46,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1199842716204219607, guid: 357932682341242a3968f1d17507aa70, type: 3}
-    - {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
-    - {fileID: -555829480974538627, guid: 3b3fbf26098bf4b378405fb99c8e0df4, type: 3}
+    - {fileID: 5905681027756182028, guid: f4af0a587237c4b519c06c5839c1ecbb, type: 3}
+    - {fileID: -4243389574673483943, guid: b479100557b2b4756b149d280fec9fec, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 3
+    m_StopTime: 2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -75,18 +72,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 1
-    functionName: EnableAttackHitbox
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2
-    functionName: DisableAttackHitbox
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

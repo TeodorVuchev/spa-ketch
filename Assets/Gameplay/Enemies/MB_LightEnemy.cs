@@ -68,14 +68,13 @@ public class MB_LightEnemy : EnemyBehaviour
 	public override void Dead() {}
 
 
-    // TODO: Abstract away maybe
     protected override void LookAtPlayer()
     {
         if(transform.position.x <= player.transform.position.x)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
             return;
         }
-        transform.localScale = new Vector3(1f, 1f, 1f);
+        transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 }

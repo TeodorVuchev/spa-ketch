@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9208882087313523412}
   - component: {fileID: 5997092016406515498}
   - component: {fileID: 2324158704612980153}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: AttackBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 2866993704567026301}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.76, y: 0.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.61, y: 0.53, z: 0}
+  m_LocalScale: {x: 2.4165626, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1375526679227438917}
@@ -49,7 +49,7 @@ BoxCollider2D:
     m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 895
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -103,8 +103,6 @@ GameObject:
   - component: {fileID: 1375526679227438917}
   - component: {fileID: 572788424607944159}
   - component: {fileID: 3554626986711252409}
-  - component: {fileID: 4843062644895369682}
-  - component: {fileID: -6610288913826197412}
   - component: {fileID: 6030913029419105390}
   - component: {fileID: -587073313955631855}
   - component: {fileID: 3617941818437210477}
@@ -174,7 +172,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.108, y: 3.982}
+    oldSize: {x: 1.925, y: 4.6625}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -200,31 +198,6 @@ MonoBehaviour:
   invincibilityTime: 0.5
   deathScreen: {fileID: 0}
   healthBar: {fileID: 0}
---- !u!114 &4843062644895369682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5888481729574194774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7b27f862f7b61409219cdd6580e8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MB_LookAtPlayer
---- !u!114 &-6610288913826197412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5888481729574194774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c8f807fa7b3531498df608a2f9696a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MB_FollowPlayer
-  followSpeed: 0.8
 --- !u!212 &6030913029419105390
 SpriteRenderer:
   serializedVersion: 2
@@ -251,7 +224,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -274,7 +247,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4735203528136751151, guid: 76f780af0d0153e4a8997c05d49ce604, type: 3}
+  m_Sprite: {fileID: 5905681027756182028, guid: f4af0a587237c4b519c06c5839c1ecbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -329,9 +302,9 @@ MonoBehaviour:
   followSpeed: 4
   laneTolerance: 0.35
   ySteerWeight: 0.35
-  attackRangeX: 1.5
-  attackRangeY: 0.2
-  disengageExtraX: 0.35
+  attackRangeX: 2.5
+  attackRangeY: 0.3
+  disengageExtraX: 0.5
   disengageExtraY: 0.2
   chargeDuration: 2
   player: {fileID: 0}
