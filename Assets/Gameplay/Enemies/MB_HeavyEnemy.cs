@@ -2,51 +2,14 @@ using UnityEngine;
 
 public class MB_HeavyEnemy : EnemyBehaviour
 {
-    [SerializeField]
-    public float idleWaitTimeMin = 0.0f;
-
-    [SerializeField]
-    public float idleWaitTimeMax = 10.0f;
-
-    // Setting the default high for easier debugging (in theory)
-    private float idleWaitTimeDefault = 40.0f;
-    private float idleWaitTime = 40.0f;
-
-    [SerializeField] float followSpeed = 10.0f;
-    [SerializeField] float laneTolerance = 0.35f;     // tune this
-    [SerializeField] float ySteerWeight = 0.35f;      // 0..1 (how much Y matters vs X)
-    [SerializeField] float attackRangeX = 0.5f;
-    [SerializeField] float attackRangeY = 0.45f;
-
-    [SerializeField] float disengageExtraX = 0.35f;  // hysteresis (tune)
-    [SerializeField] float disengageExtraY = 0.20f;
-
-    [SerializeField] float chargeDuration = 2.0f;
-/*     [SerializeField] float chargeSpeedMultiplier = 1.5f;
- */
     float chargeTimer;
 
     Vector2 chargeDir;
 
-    float laneTargetY;        // enemy’s chosen lane near the player
-    float laneRepathTimer;    // when to pick a new lane target
-
     protected new void Awake() 
     {
         base.Awake();
-        idleWaitTimeDefault = Random.Range(idleWaitTimeMin, idleWaitTimeMax);
-        idleWaitTime = idleWaitTimeDefault;
         chargeTimer = chargeDuration;
-    }
-
-    public override void Idle() 
-    {
-        idleWaitTime -= Time.deltaTime;
-        if (idleWaitTime <= 0.0f) {
-            LookAtPlayer();
-            currentState = EnemyState.Chasing;
-            idleWaitTime = idleWaitTimeDefault;
-        }
     }
 
     public override void Chasing()
@@ -147,17 +110,7 @@ public class MB_HeavyEnemy : EnemyBehaviour
 	public override void Dead() {}
 
     // TODO: Abstract away maybe
-    void FollowPlayer() 
-    {
-        if (transform.position != player.transform.position)
-        {
-            Vector2 direction = (player.transform.position - transform.position).normalized;
-            rb.MovePosition(rb.position + direction * Time.fixedDeltaTime * followSpeed);
-        }
-    }
-
-    // TODO: Abstract away maybe
-    void LookAtPlayer()
+    protected override void LookAtPlayer()
     {
         if (transform.position.x <= player.transform.position.x)
         {

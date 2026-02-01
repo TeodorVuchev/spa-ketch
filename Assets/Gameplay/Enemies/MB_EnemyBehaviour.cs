@@ -4,6 +4,27 @@ using System.Collections;
 public abstract class EnemyBehaviour : MonoBehaviour 
 {
 	[SerializeField] float spawnPadding = 0.1f;
+    [SerializeField] protected float idleWaitTimeMin = 0.0f;
+
+    [SerializeField] protected float idleWaitTimeMax = 10.0f;
+
+    // Setting the default high for easier debugging (in theory)
+    protected float idleWaitTimeDefault = 40.0f;
+    protected float idleWaitTime = 40.0f;
+
+    [SerializeField] protected float followSpeed = 10.0f;
+    [SerializeField] protected float laneTolerance = 0.35f;     // tune this
+    [SerializeField] protected float ySteerWeight = 0.35f;      // 0..1 (how much Y matters vs X)
+    [SerializeField] protected float attackRangeX = 0.5f;
+    [SerializeField] protected float attackRangeY = 0.45f;
+
+    [SerializeField] protected float disengageExtraX = 0.35f;  // hysteresis (tune)
+    [SerializeField] protected float disengageExtraY = 0.20f;
+
+    [SerializeField] protected float chargeDuration = 2.0f;
+
+    protected float laneTargetY;        // enemy’s chosen lane near the player
+    protected float laneRepathTimer;    // when to pick a new lane target
 
 	public enum EnemyState 
 	{
@@ -25,6 +46,8 @@ public abstract class EnemyBehaviour : MonoBehaviour
 		player = FindFirstObjectByType<MB_PlayerController>().gameObject;
 		rb = GetComponent<Rigidbody2D>();
 		currentState = EnemyState.Initializing;
+        idleWaitTimeDefault = Random.Range(idleWaitTimeMin, idleWaitTimeMax);
+        idleWaitTime = idleWaitTimeDefault;
 	}
 
 	public virtual void FixedUpdate () {
@@ -68,7 +91,15 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
 	public EnemyState GetCurrentState() { return currentState; }
 
-	public virtual void Idle() {}
+	public virtual void Idle()
+	{
+		idleWaitTime -= Time.deltaTime;
+        if (idleWaitTime <= 0.0f) {
+            LookAtPlayer();
+            currentState = EnemyState.Chasing;
+            idleWaitTime = idleWaitTimeDefault;
+        }
+	}
 
 	public virtual void Chasing() {}
 
@@ -77,4 +108,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
 	public virtual void Attacking() {}
 
 	public virtual void Dead() {}
+
+	protected virtual void LookAtPlayer() {}
 }

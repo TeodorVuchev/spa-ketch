@@ -324,14 +324,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_LightEnemy
   spawnPadding: 0.5
-  player: {fileID: 0}
   idleWaitTimeMin: 0
   idleWaitTimeMax: 2
   followSpeed: 4
   laneTolerance: 0.35
   ySteerWeight: 0.35
-  attackRangeX: 3
+  attackRangeX: 1.5
   attackRangeY: 0.2
+  disengageExtraX: 0.35
+  disengageExtraY: 0.2
+  chargeDuration: 2
+  player: {fileID: 0}
 --- !u!95 &-7339206610351680921
 Animator:
   serializedVersion: 7
@@ -342,7 +345,7 @@ Animator:
   m_GameObject: {fileID: 5888481729574194774}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 622d1f272dd1e4f699af0f912f5daeac, type: 2}
+  m_Controller: {fileID: 9100000, guid: a3d961ffd8d84422ab06c547923da377, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -361,7 +364,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5888481729574194774}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e598ef23e2d294ce4bf045725724efda, type: 3}
   m_Name: 
