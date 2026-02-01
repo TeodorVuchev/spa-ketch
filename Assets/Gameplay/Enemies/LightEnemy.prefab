@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_DamageDealer
   damage: 5
+  gameUI: {fileID: 0}
 --- !u!1 &5888481729574194774
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +197,7 @@ MonoBehaviour:
   health: 50
   pushSpeed: 7
   totalDamagedTime: 0.1
+  moveDownOnDeath: -2
   invincibilityTime: 0.5
   deathScreen: {fileID: 0}
   healthBar: {fileID: 0}

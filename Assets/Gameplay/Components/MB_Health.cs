@@ -6,6 +6,7 @@ public class MB_Health : MonoBehaviour
     [SerializeField] float health = 50f;
     [SerializeField] float pushSpeed = 50f;
     [SerializeField] float totalDamagedTime = 0.5f;
+    [SerializeField] float moveDownOnDeath = -10f;
 
     [Header ("Player Specific")]
     [SerializeField] float invincibilityTime = 0.5f;
@@ -79,6 +80,7 @@ public class MB_Health : MonoBehaviour
                 {
                     collider.enabled = false;
                 }
+                gameObject.transform.Translate(new Vector3(0f, moveDownOnDeath, 0f));
                 return;
             }
 
@@ -89,6 +91,7 @@ public class MB_Health : MonoBehaviour
                 {
                     collider.enabled = false;
                 }
+                this.gameObject.transform.Translate(new Vector3(0f, moveDownOnDeath, 0f));
                 enemy.SetDead();
                 return;
             }
