@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.49, y: 0.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0625, y: 2.4391344, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1375526679227438917}
@@ -325,7 +325,9 @@ MonoBehaviour:
   laneTolerance: 0.35
   ySteerWeight: 0.35
   attackRangeX: 2.5
-  attackRangeY: 0.5
+  attackRangeY: 1
+  disengageExtraX: 0.35
+  disengageExtraY: 0.2
 --- !u!95 &4512115723609241029
 Animator:
   serializedVersion: 7
@@ -360,6 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e598ef23e2d294ce4bf045725724efda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_AnimatorControllerDriver
+  attackRepeatDelay: 0.2
 --- !u!114 &5289707868864055119
 MonoBehaviour:
   m_ObjectHideFlags: 0
