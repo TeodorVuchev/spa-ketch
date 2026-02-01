@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8241264787920388455}
   - component: {fileID: 1548554633892408121}
   - component: {fileID: 2377397629420891853}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: HeavyAttackBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,10 +46,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 895
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b4e71df752c4553bcdacc8cf601cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_HeavyEnemy
+  spawnPadding: 0.1
   player: {fileID: 0}
   idleWaitTimeMin: 0
   idleWaitTimeMax: 3
