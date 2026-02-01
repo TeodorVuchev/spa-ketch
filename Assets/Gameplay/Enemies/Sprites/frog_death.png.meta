@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 573542f0092c441e1a62d4e4103bf910
+guid: 55988d99d4a014898bd645656dfa5dd0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7050993540882883828
-    second: Idle 1_0
+      213: 884107360054127414
+    second: frog_death_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle 1_0
+      name: frog_death_0
       rect:
         serializedVersion: 2
-        x: 552
-        y: 351
-        width: 904
-        height: 1237
+        x: 169
+        y: 36
+        width: 1279
+        height: 743
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0b1a1a7bb6d52e90800000000000000
-      internalID: -7050993540882883828
+      spriteID: 63ba553b5faf44c00800000000000000
+      internalID: 884107360054127414
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f1529e327f4d94a94813bd1fec3decac
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle 1_0: -7050993540882883828
+      frog_death_0: 884107360054127414
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
