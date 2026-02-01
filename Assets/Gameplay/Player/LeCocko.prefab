@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 8821691177399617938}
   - component: {fileID: 7223437200607502658}
   - component: {fileID: 434084687206107859}
+  - component: {fileID: 8219741869613125015}
   m_Layer: 7
   m_Name: LeCocko
   m_TagString: Untagged
@@ -506,3 +507,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8950168, y: 0.12195933}
   m_EdgeRadius: 0
+--- !u!114 &8219741869613125015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142681765295251213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19280da676bc3ab458977cf7ec3fbf60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MB_Health
+  health: 50
+  pushSpeed: 50

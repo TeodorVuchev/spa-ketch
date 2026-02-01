@@ -18,6 +18,8 @@ public class MB_HeavyEnemy : EnemyBehaviour
     [SerializeField] float attackRangeX = 0.5f;
     [SerializeField] float attackRangeY = 0.45f;
 
+    [SerializeField] float disengageExtraX = 0.35f;  // hysteresis (tune)
+    [SerializeField] float disengageExtraY = 0.20f;
     float laneTargetY;        // enemy’s chosen lane near the player
     float laneRepathTimer;    // when to pick a new lane target
 
@@ -56,12 +58,17 @@ public class MB_HeavyEnemy : EnemyBehaviour
         bool inLane = Mathf.Abs(dyToLane) <= laneTolerance;
 
         // If close enough, attack (needs both X & Y near-ish, not exact)
-        if (Mathf.Abs(dx) <= attackRangeX && Mathf.Abs(player.transform.position.y - pos.y) <= attackRangeY)
+/*         if (Mathf.Abs(dx) <= attackRangeX && Mathf.Abs(player.transform.position.y - pos.y) <= attackRangeY)
+        {
+            currentState = EnemyState.Attacking;
+            return;
+        } */
+        float dy = player.transform.position.y - pos.y;
+        if (Mathf.Abs(dx) <= attackRangeX && Mathf.Abs(dy) <= attackRangeY)
         {
             currentState = EnemyState.Attacking;
             return;
         }
-
         // Movement:
         // - Always advance in X.
         // - Apply limited Y correction, stronger when not in lane.
@@ -71,9 +78,34 @@ public class MB_HeavyEnemy : EnemyBehaviour
         rb.MovePosition(pos + step * followSpeed * Time.fixedDeltaTime);
     }
 
-	public override void Attacking() 
+    public override void Attacking()
     {
-        
+        Vector2 pos = rb.position;
+
+        float dx = player.transform.position.x - pos.x;
+        float dy = player.transform.position.y - pos.y;
+
+        bool inAttackRange =
+            Mathf.Abs(dx) <= attackRangeX &&
+            Mathf.Abs(dy) <= attackRangeY;
+
+        bool shouldDisengage =
+            Mathf.Abs(dx) > attackRangeX + disengageExtraX ||
+            Mathf.Abs(dy) > attackRangeY + disengageExtraY;
+
+        // If player moved away enough, stop attacking so the animation driver stops re-triggering.
+        if (!inAttackRange && shouldDisengage)
+        {
+            currentState = EnemyState.Idle;   // usually better than Idle
+            return;
+        }
+
+        // Optional: keep facing player while attacking
+        LookAtPlayer();
+
+        // Optional: if you want them to "micro-step" into lane before continuing attacks:
+        // (only do this if it looks good in your game)
+        if (Mathf.Abs(dy) > attackRangeY * 0.9f) currentState = EnemyState.Chasing;
     }
 
 	public override void Dead() {}
@@ -91,9 +123,9 @@ public class MB_HeavyEnemy : EnemyBehaviour
     // TODO: Abstract away maybe
     void LookAtPlayer()
     {
-        if(transform.position.x <= player.transform.position.x)
+        if (transform.position.x <= player.transform.position.x)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
             return;
         }
         transform.localScale = new Vector3(-1f, 1f, 1f);

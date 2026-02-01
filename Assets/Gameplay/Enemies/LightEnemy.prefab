@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6a39c10403840e4b090a6aab2c39e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_LightEnemy
-  spawnPadding: 0.1
+  spawnPadding: 0.5
   player: {fileID: 0}
   idleWaitTimeMin: 0
   idleWaitTimeMax: 2
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e598ef23e2d294ce4bf045725724efda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MB_AnimatorControllerDriver
+  attackRepeatDelay: 0.2
 --- !u!114 &5735245070680153203
 MonoBehaviour:
   m_ObjectHideFlags: 0
