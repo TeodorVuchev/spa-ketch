@@ -4,7 +4,7 @@ public class MB_DamageDealer : MonoBehaviour
 {
     [SerializeField] float damage = 10f;
     [SerializeField] MB_UIInGame gameUI;
-    [SerializeField] Animator playerVFX;
+    [SerializeField] Animator HitVFX;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MB_Health hitHealth = collision.GetComponent<MB_Health>();
@@ -12,9 +12,9 @@ public class MB_DamageDealer : MonoBehaviour
         hitHealth.DealDamage(damage);
         if(gameObject.tag == "Player")
         {
-            playerVFX.SetTrigger("PlayVFX");
             gameUI.ComboIncrease();
         }
+        HitVFX.SetTrigger("PlayVFX");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

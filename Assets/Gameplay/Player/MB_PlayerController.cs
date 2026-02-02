@@ -7,10 +7,10 @@ public class MB_PlayerController : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 20f;
     [SerializeField] float heavyAttackChargeTime = 5f;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     Animator animator;
     Rigidbody2D rb;
-    SpriteRenderer spriteRenderer;
 
 
     bool comboWindowOpen = false;
@@ -18,7 +18,7 @@ public class MB_PlayerController : MonoBehaviour
     bool charging = false;
     bool charged = false;
     int comboIndex = 0;
-    int tweenId = 0;
+
 
     Vector2 movementInput;
     AnimatorStateInfo currentAnimationState;
@@ -30,18 +30,14 @@ public class MB_PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        LeanTween.reset();
 
-        // Fix for LeanTween not starting on subsequent play sessions
-        if (tweenId != 0)
-        {
-            LeanTween.cancel(tweenId);
-            tweenId = 0;
-        }         // reset LeanTween internals globally
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        print(spriteRenderer.color);
         // Ensures Attack Input takes Priority
         currentAnimationState = animator.GetCurrentAnimatorStateInfo(0);
         if (currentAnimationState.IsName("Attack")) { return; }
@@ -105,8 +101,7 @@ public class MB_PlayerController : MonoBehaviour
             audioSource.Play();
             animator.SetTrigger("HeavyAttack");
             charged = false;
-            LeanTween.cancel(tweenId);
-            tweenId = 0;
+           //eanTween.cancel(tweenId);
             spriteRenderer.color = Color.white;
         }
         else
@@ -131,19 +126,10 @@ public class MB_PlayerController : MonoBehaviour
     // Call this to start the color loop
     public void StartColorLoop()
     {
-        print("tweeenit!");
-
-        print(spriteRenderer);
-        if (tweenId != 0)
-        {
-            LeanTween.cancel(tweenId);
-            tweenId = 0;
-        }
-        if (tweenId != 0) { LeanTween.cancel(gameObject); }
         // LeanTween.color uses a linear interpolation by default
-        tweenId = LeanTween.value(gameObject, UpdateColor, Color.white, Color.yellow, 0.2f)
+       LeanTween.value(gameObject, UpdateColor, Color.white, Color.yellow, 0.2f)
             .setEaseLinear()
-            .setLoopPingPong().id; // goes back and forth endlessly
+            .setLoopPingPong(); // goes back and forth endlessly
     }
 
     // Update the sprite color each frame

@@ -127,7 +127,7 @@ public class MB_Health : MonoBehaviour
     }
     IEnumerator InvincibilityTime()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(invincibilityTime);
         invincibilityFrame = false;
     }
 

@@ -8,6 +8,7 @@ public class MB_UIManager : MonoBehaviour
 {
     [SerializeField] Button startButton;
     [SerializeField] RectTransform startButtonRect;
+    [SerializeField] RectTransform controlsButtonRect;
     [SerializeField] RectTransform logo;
 
     [Header("Logo")]
@@ -21,7 +22,11 @@ public class MB_UIManager : MonoBehaviour
 
     [Header("Start")]
     [SerializeField] float buttTargetY;
+    [SerializeField] float controlButtTargetY;
     [SerializeField] float buttDuration;
+
+    [Header("Controls")]
+    [SerializeField] GameObject controlScreen;
 
     [Header("Cinematics")]
     [SerializeField] VideoPlayer videoPlayer;
@@ -82,6 +87,8 @@ public class MB_UIManager : MonoBehaviour
     {
         LeanTween.moveY(startButtonRect, buttTargetY, buttDuration)
                  .setEaseOutQuad();
+        LeanTween.moveY(controlsButtonRect, controlButtTargetY, buttDuration)
+                 .setEaseOutQuad();
     }
 
     void JumpLogo()
@@ -98,5 +105,13 @@ public class MB_UIManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void OpenControls()
+    {
+        controlScreen.SetActive(true);
+    }
+    public void CloseControls()
+    {
+        controlScreen.SetActive(false);
     }
 }

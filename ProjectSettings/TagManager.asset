@@ -55,5 +55,8 @@ TagManager:
   - name: Characters
     uniqueID: 410204905
     locked: 0
+  - name: HitVFX
+    uniqueID: 3219006215
+    locked: 0
   m_RenderingLayers:
   - Default

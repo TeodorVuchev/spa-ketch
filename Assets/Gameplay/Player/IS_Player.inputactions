@@ -257,11 +257,44 @@
                 },
                 {
                     "name": "",
+                    "id": "c2329b75-8350-410a-bdb3-a8f4caf05470",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "af7d178d-d0c3-428b-8462-5fd399c04344",
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bba38b79-70a3-4824-9811-73730c853772",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f2862e4-87ae-4a2e-a2cd-12321bb0ad4e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "HeavyAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
